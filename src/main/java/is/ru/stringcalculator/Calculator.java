@@ -6,10 +6,9 @@ public class Calculator {
 		if(text.equals(""))
 			return 0;
 		
-		else if(text.contains(",")) {
+		else if(text.contains(",")) 
 			return plusMultiNumb(text);
-		}
-
+		
 		else
 			return 1;
 	}
@@ -19,10 +18,14 @@ public class Calculator {
 	}
 
 	private static int plusMultiNumb(String text) {
+		if(text.contains("\n")) {
+			text = text.replace("\n",",");
+		}
+		
 		String [] numbers = text.split(",");
 		int sum = 0;
 
-		for(int i = 0; i < numbers.length;i++) {
+		for(int i = 0; i < numbers.length; i++) {
 			sum += toInt(numbers[i]);
 		}
 
