@@ -30,7 +30,7 @@ public class Calculator {
 			sum += numbInt;
 		}
 		if(negaNumb.size() > 0) {
-			throw new RuntimeException("Negatives not allowed: " + negaNumb.toString());
+			throwingException(negaNumb);
 		}
 
 		return sum;
@@ -42,4 +42,9 @@ public class Calculator {
 		String [] numbers = text.split(",");
 		return numbers;
 	}
+
+	private static void throwingException(List negaNumb) {
+		throw new RuntimeException("Negatives not allowed: " + negaNumb.toString());
+	}
+
 }
