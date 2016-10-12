@@ -32,12 +32,17 @@ public class CalculatorTest {
 
 	@Test
 	public void testNegativeNumber() {
-		assertEquals(6, Calculator.add("-1,2"));
+		assertEquals(2, Calculator.add("-1,2"));
 	}
 
 	@Test
 	public void testMoreNegativeNumber() {
-		assertEquals(6, Calculator.add("2,-4,3,-5"));
+		assertEquals(5, Calculator.add("2,-4,3,-5"));
+	}
+
+	@Test
+	public void testBigNumbers() {
+		assertEquals(2, Calculator.add("1001,2"));
 	}
 
 }

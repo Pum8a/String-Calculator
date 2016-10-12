@@ -1,6 +1,8 @@
 package is.ru.stringcalculator;
+
 import java.io.*;
 import java.util.*;
+
 public class Calculator {
 
 	public static int add(String text){
@@ -27,7 +29,9 @@ public class Calculator {
 			if(numbInt < 0) {
 				negaNumb.add(numbInt);
 			}
-			sum += numbInt;
+			if(numbInt <= 1000) {
+				sum += numbInt;
+			}
 		}
 		if(negaNumb.size() > 0) {
 			throwingException(negaNumb);
@@ -35,6 +39,7 @@ public class Calculator {
 
 		return sum;
 	}
+
 	private static String[] splitNumbers(String text) {
 		if(text.contains("\n")) {
 			text = text.replace("\n",",");
