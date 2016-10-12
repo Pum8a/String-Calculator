@@ -21,7 +21,7 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void testTwoNumber() {
+	public void testInfNumber() {
 		assertEquals(15, Calculator.add("1,2,3,4,5"));
 	}
 
