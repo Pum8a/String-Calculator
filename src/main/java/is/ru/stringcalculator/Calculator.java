@@ -5,10 +5,8 @@ public class Calculator {
 	public static int add(String text){
 		if(text.equals(""))
 			return 0;
-		
-		else if(text.contains(",")) 
+		if(text.contains(","))
 			return plusMultiNumb(text);
-		
 		else
 			return 1;
 	}
@@ -18,11 +16,13 @@ public class Calculator {
 	}
 
 	private static int plusMultiNumb(String text) {
-		if(text.contains("\n")) {
+		/*if(text.contains("\n")) {
 			text = text.replace("\n",",");
 		}
-		
+
 		String [] numbers = text.split(",");
+		*/
+		String [] numbers = splitNumbers(text);
 		int sum = 0;
 
 		for(int i = 0; i < numbers.length; i++) {
@@ -30,5 +30,12 @@ public class Calculator {
 		}
 
 		return sum;
+	}
+	private static String[] splitNumbers(String text) {
+		if(text.contains("\n")) {
+			text = text.replace("\n",",");
+		}
+		String [] numbers = text.split(",");
+		return numbers;
 	}
 }
