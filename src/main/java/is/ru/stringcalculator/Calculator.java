@@ -1,5 +1,6 @@
 package is.ru.stringcalculator;
 import java.io.*;
+import java.util.*;
 public class Calculator {
 
 	public static int add(String text){
@@ -16,17 +17,20 @@ public class Calculator {
 	}
 
 	private static int plusMultiNumb(String text) {
-		/*if(text.contains("\n")) {
-			text = text.replace("\n",",");
-		}
-
-		String [] numbers = text.split(",");
-		*/
 		String [] numbers = splitNumbers(text);
 		int sum = 0;
 
+		List negaNumb = new ArrayList();
+
 		for(int i = 0; i < numbers.length; i++) {
-			sum += toInt(numbers[i]);
+			int numbInt = toInt(numbers[i]);
+			if(numbInt < 0) {
+				negaNumb.add(numbInt);
+			}
+			sum += numbInt;
+		}
+		if(negaNumb.size() > 0) {
+			throw new RuntimeException("Negatives not allowed: " + negaNumb.toString());
 		}
 
 		return sum;

@@ -24,9 +24,20 @@ public class CalculatorTest {
 	public void testInfNumber() {
 		assertEquals(15, Calculator.add("1,2,3,4,5"));
 	}
+	
 	@Test
 	public void testNewLineNumber() {
 		assertEquals(6, Calculator.add("1\n2,3"));
+	}
+
+	@Test
+	public void testNegativeNumber() {
+		assertEquals(6, Calculator.add("-1,2"));
+	}
+
+	@Test
+	public void testMoreNegativeNumber() {
+		assertEquals(6, Calculator.add("2,-4,3,-5"));
 	}
 
 }
