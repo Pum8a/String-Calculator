@@ -6,11 +6,12 @@ import java.util.*;
 public class Calculator {
 
 	public static int add(String text) {
-		String delichar = ",";
+		//String delichar = ",";
 		if (text.contains("//")) {
-			delichar = text.substring(2,3);
+			/*delichar = text.substring(2,3);
 			text = text.replaceAll(delichar,",");
-			text = text.substring(4,text.length());
+			text = text.substring(4,text.length());*/
+			text = differentDeli(text);
 		}
 
 		if (text.equals("")) {
@@ -66,6 +67,14 @@ public class Calculator {
 
 	private static void throwingException(List negaNumb) {
 		throw new RuntimeException("Negatives not allowed: " + negaNumb.toString());
+	}
+
+	private static String differentDeli(String text) {
+		String delichar = ",";
+		delichar = text.substring(2,3);
+		text = text.replaceAll(delichar,",");
+		text = text.substring(4,text.length());
+		return text;
 	}
 
 }
