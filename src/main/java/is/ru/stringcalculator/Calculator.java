@@ -5,13 +5,18 @@ import java.util.*;
 
 public class Calculator {
 
-	public static int add(String text){
-		if(text.equals(""))
+	public static int add(String text) {
+		if (text.equals("")) {
 			return 0;
-		if(text.contains(","))
+		}
+
+		if (text.contains(",")) {
 			return plusMultiNumb(text);
-		else
+		}
+
+		else {
 			return 1;
+		}
 	}
 
 	private static int toInt(String text) {
@@ -21,19 +26,21 @@ public class Calculator {
 	private static int plusMultiNumb(String text) {
 		String [] numbers = splitNumbers(text);
 		int sum = 0;
-
 		List negaNumb = new ArrayList();
 
-		for(int i = 0; i < numbers.length; i++) {
+		for (int i = 0; i < numbers.length; i++) {
 			int numbInt = toInt(numbers[i]);
-			if(numbInt < 0) {
+			
+			if (numbInt < 0) {
 				negaNumb.add(numbInt);
 			}
-			if(numbInt <= 1000) {
+			
+			if (numbInt <= 1000) {
 				sum += numbInt;
 			}
 		}
-		if(negaNumb.size() > 0) {
+		
+		if (negaNumb.size() > 0) {
 			throwingException(negaNumb);
 		}
 
@@ -41,10 +48,12 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String text) {
-		if(text.contains("\n")) {
+		if (text.contains("\n")) {
 			text = text.replace("\n",",");
 		}
+		
 		String [] numbers = text.split(",");
+		
 		return numbers;
 	}
 
