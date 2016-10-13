@@ -32,12 +32,24 @@ public class CalculatorTest {
 
 	@Test
 	public void testNegativeNumber() {
-		assertEquals(2, Calculator.add("-1,2"));
+		RuntimeException exception = null;
+		try{
+			assertEquals(2, Calculator.add("-1,2"));
+		} catch (RuntimeException e) {
+			exception = e;
+			System.out.println(exception);
+		}
 	}
 
 	@Test
 	public void testMoreNegativeNumber() {
-		assertEquals(5, Calculator.add("2,-4,3,-5"));
+		RuntimeException exception = null;
+		try{
+			assertEquals(5, Calculator.add("2,-4,3,-5"));
+		} catch (RuntimeException e) {
+			exception = e;
+			System.out.println(exception);
+		}
 	}
 
 	@Test
@@ -45,4 +57,9 @@ public class CalculatorTest {
 		assertEquals(2, Calculator.add("1001,2"));
 	}
 
+	@Test
+	public void testDelimeter() {
+		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
+	
 }

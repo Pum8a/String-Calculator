@@ -6,6 +6,13 @@ import java.util.*;
 public class Calculator {
 
 	public static int add(String text) {
+		String delichar = ",";
+		if (text.contains("//")) {
+			delichar = text.substring(2,3);
+			text = text.replaceAll(delichar,",");
+			text = text.substring(4,text.length());
+		}
+
 		if (text.equals("")) {
 			return 0;
 		}
